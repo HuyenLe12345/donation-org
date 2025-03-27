@@ -248,7 +248,8 @@ const ProfileForm = () => {
                 className="form-control"
                 value={fullname}
                 onChange={(e) => setFullname(e.target.value)}
-                required
+                required={role && role !== "amdin 1" && role !== "admin 2"}
+
               />
             )}
             <FormGroup
@@ -259,7 +260,8 @@ const ProfileForm = () => {
               className="form-control"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              required
+              required={role && role !== "amdin 1" && role !== "admin 2"}
+
             />{" "}
             {roleInProfile === "partner" && (
               <>
@@ -282,7 +284,8 @@ const ProfileForm = () => {
                   className="form-control"
                   rows="6"
                   onChange={(e) => setSummary(e.target.value)}
-                  required
+                  
+
                 />
               </>
             )}
@@ -300,6 +303,8 @@ const ProfileForm = () => {
               sharedName="provinces"
               onChange={handleProvinceChange}
               options={provinces}
+              required={role && role !== "amdin 1" && role !== "admin 2"}
+
             />
             <FormGroup
               value={chosenDistrict}
@@ -310,6 +315,8 @@ const ProfileForm = () => {
               sharedName="provinces"
               onChange={handleDistrictChange}
               options={districts}
+              required={role && role !== "amdin 1" && role !== "admin 2"}
+
             />
             <FormGroup
               value={chosenWard}
@@ -320,6 +327,8 @@ const ProfileForm = () => {
               sharedName="provinces"
               onChange={(e) => setChosenWard(e.target.value)}
               options={wards}
+              required={role && role !== "amdin 1" && role !== "admin 2"}
+
             />
             <FormGroup
               type="text"
@@ -330,7 +339,8 @@ const ProfileForm = () => {
               value={addressDetail}
               onChange={(e) => setAddressDetail(e.target.value)}
               placeholder="Số nhà và tên đường"
-              required
+             required={role && role !== "amdin 1" && role !== "admin 2"}
+
             />
             {(roleInProfile === "admin" || roleInProfile === "client") && (
               <FormGroup
@@ -360,7 +370,7 @@ const ProfileForm = () => {
                     id="linkQR"
                     name="linkQR"
                     sharedName="line linkQR"
-                    required={!linkQR}
+                    required={role && role !== "amdin 1" && role !== "admin 2" &&!linkQR}
                   />
                 </>
               )}
@@ -370,7 +380,7 @@ const ProfileForm = () => {
               id="avatar"
               name="avatar"
               sharedName="line"
-              required={!avatar}
+              required={role && role !== "amdin 1" && role !== "admin 2" && !avatar}
             />
             <FormGroup
               label="Hình nền:"
@@ -378,7 +388,7 @@ const ProfileForm = () => {
               id="background"
               name="background"
               sharedName="line"
-              required={!background}
+              required={ role && role !== "amdin 1" && role !== "admin 2" && !background}
             />
             {(role === "admin 1" || role === "admin 2") && (
               <FormGroup
